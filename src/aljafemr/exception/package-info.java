@@ -1,6 +1,4 @@
-package aljafemr.exception;
-
-/*
+/**
 * Exception Package Documentation
 
 * Exception contains project exception classes:
@@ -9,3 +7,5 @@ package aljafemr.exception;
     * InvalidDataException - Reports invalid domain or stored data.
 
 */
+
+package aljafemr.exception;

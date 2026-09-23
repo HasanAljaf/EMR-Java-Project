@@ -1,3 +1,7 @@
+# IntelliJ build output
+out/
+*.class
+
 # IntelliJ personal/workspace settings
 .idea/workspace.xml
 .idea/usage.statistics.xml

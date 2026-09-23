@@ -37,7 +37,7 @@ A console-based Electronic Medical Record (EMR) application written in plain Jav
 
 ```
 src/
-└── emr/
+└── aljafemr/
     ├── model/         Person, Patient, Doctor, Appointment, AppointmentStatus, MedicalRecord
     ├── application/   EMRSystem
     ├── ui/            MenuManager

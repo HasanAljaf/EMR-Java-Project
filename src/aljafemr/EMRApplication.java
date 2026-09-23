@@ -1,12 +1,12 @@
 package aljafemr;
 
 public class EMRApplication {
-    void main(String[] args) {
+    public static void main(String[] args) {
 
         // Startup Message
-        IO.println("EMR: Starting Session...");
+        System.out.println("EMR: Starting session...");
 
         // Exit Message
-        IO.println("EMR: Shutting Down...");
+        System.out.println("EMR: Shutting down...");
     }
 }

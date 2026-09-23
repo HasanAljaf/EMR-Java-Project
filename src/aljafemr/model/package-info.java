@@ -1,6 +1,4 @@
-package aljafemr.model;
-
-/*
+/**
 * Model Package Documentation
 
 * Model contains People & Clinical Activity Classes:
@@ -8,3 +6,5 @@ package aljafemr.model;
    Clinical Activity: Appointment, AppointmentStatus, MedicalRecord
 
 */
+
+package aljafemr.model;
