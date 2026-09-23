@@ -6,7 +6,8 @@ A console-based Electronic Medical Record (EMR) application written in plain Jav
 
 ## Project Status
 
-🚧 In development. Features are being built in small, tested increments (see [Development Plan](#development-plan)).
+🚧 Project and package setup chunk is complete. Now building chunk 2: `Person`, `Patient`, and `Doctor` Classes
+(see [Development Plan](#development-plan)).
 
 ## Features
 
