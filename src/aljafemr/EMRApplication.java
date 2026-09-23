@@ -1,5 +1,12 @@
 package aljafemr;
 
 public class EMRApplication {
-    // Main application java file.
+    void main(String[] args) {
+
+        // Startup Message
+        IO.println("EMR: Starting Session...");
+
+        // Exit Message
+        IO.println("EMR: Shutting Down...");
+    }
 }

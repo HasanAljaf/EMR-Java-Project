@@ -48,14 +48,14 @@ src/
 
 ## Requirements
 
-- Java Development Kit (JDK) 17 or later
+- Developed on Java Development Kit (JDK) 25
 - IntelliJ IDEA (recommended) or any Java IDE
 
 ## Getting Started
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/<repo-name>.git
+   git clone https://github.com/HasanAljaf/EMR-Java-Project.git
    ```
 2. Open the project folder in IntelliJ IDEA.
 3. Make sure a JDK is selected under **File → Project Structure → Project**.
@@ -67,15 +67,17 @@ _To be documented once file persistence is implemented._
 
 ## Development Plan
 
-- [ ] 1. Project and package setup
-- [ ] 2. `Person`, `Patient`, and `Doctor`
-- [ ] 3. `AppointmentStatus` and `Appointment`
-- [ ] 4. `MedicalRecord`
-- [ ] 5. Patient and doctor management in `EMRSystem`
-- [ ] 6. Appointment management and conflict detection
-- [ ] 7. Console menus and input validation
-- [ ] 8. File persistence
-- [ ] 9. Testing, cleanup, and documentation
+Steps below are completed in the listed order.
+
+1. Project and package setup
+2. `Person`, `Patient`, and `Doctor`
+3. `AppointmentStatus` and `Appointment`
+4. `MedicalRecord`
+5. Patient and doctor management in `EMRSystem`
+6. Appointment management and conflict detection
+7. Console menus and input validation
+8. File persistence
+9. Testing, cleanup, and documentation
 
 ## Scope and Limitations
 
