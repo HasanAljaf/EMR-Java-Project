@@ -180,4 +180,4 @@ classDiagram
 - **EMRSystem's boundary.** The three `ArrayList`s live only inside `EMRSystem`. `MenuManager` never touches them directly and always calls an `EMRSystem` method. List-returning methods return a safe copy or read-only view, never the internal list itself.
 - **Status changes.** `Appointment` has no public `setStatus()`. The status changes only through `reschedule()`, `cancel()`, and `complete()`, which reject invalid transitions. Only `SCHEDULED` appointments block a doctor's time slot.
 - **Dependencies, not fields.** `FileManager` reads and writes `EMRSystem` data without owning it. `EMRSystem` throws the three exceptions but doesn't store them.
-- **Exception base type.** Whether the custom exceptions extend `Exception` (checked) or `RuntimeException` (unchecked) is still open. Decide before Chunk 2.
+- **Exception base type.** Custom exceptions will extend `Exception` (checked), so that errors at compile time will be caught and handled to prevent the program from crashing.  
