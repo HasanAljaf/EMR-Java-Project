@@ -71,7 +71,7 @@ _To be documented once file persistence is implemented._
 
 Steps below are completed in the listed order.
 
-1. Project and package setup
+1. Project and package setup ✅
 2. `Person`, `Patient`, and `Doctor`
 3. `AppointmentStatus` and `Appointment`
 4. `MedicalRecord`
