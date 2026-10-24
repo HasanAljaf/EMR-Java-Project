@@ -31,8 +31,8 @@ public abstract class Person {
     // Parameterized Constructor
     public Person(String id, String firstName, String lastName, LocalDate dateOfBirth) throws InvalidDataException{
         validateId(id);
-        validateName(firstName, "First name");
-        validateName(lastName, "Last name");
+        validateStringInput(firstName, "First name");
+        validateStringInput(lastName, "Last name");
         validateDateOfBirth(dateOfBirth);
 
         this.id = id;
@@ -72,7 +72,7 @@ public abstract class Person {
             throw new InvalidDataException("ID is required.");
         }
     }
-    private void validateName(String value, String fieldName) throws InvalidDataException{
+    protected void validateStringInput(String value, String fieldName) throws InvalidDataException{
         if (value == null || value.isBlank()){
             throw new InvalidDataException(fieldName + " is required.");
         }
@@ -89,7 +89,7 @@ public abstract class Person {
             throw new InvalidDataException("Date of birth must be strictly before today.");
         }
     }
-    protected static boolean checkDigits(String value, int index){
+    protected static boolean isAllDigitsFrom(String value, int index){
         for (int i = index; i < value.length(); i++){
             if (!Character.isDigit(value.charAt(i))) {
                 return false;

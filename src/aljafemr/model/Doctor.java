@@ -28,8 +28,8 @@ public class Doctor extends Person{
     public Doctor(String id, String firstName, String lastName, LocalDate dateOfBirth, String specialty, String licenseNumber) throws InvalidDataException{
         super(id, firstName, lastName, dateOfBirth);
         validateDoctorId(id);
-        validateSpecialty(specialty);
-        validateLicenseNumber(licenseNumber);
+        validateStringInput(specialty, "Specialty");
+        validateStringInput(licenseNumber, "License Number");
 
         this.specialty = specialty;
         this.licenseNumber = licenseNumber;
@@ -41,33 +41,17 @@ public class Doctor extends Person{
 
     // Setters
     public void setSpecialty(String newSpecialty) throws InvalidDataException{
-        validateSpecialty(newSpecialty);
+        validateStringInput(newSpecialty, "Specialty");
         this.specialty = newSpecialty;
     }
 
     // Helper methods
     private void validateDoctorId(String value) throws InvalidDataException{
         if (value.length() != 4 || value.charAt(0) != 'D'){
-            throw new InvalidDataException("Invalid ID format. Must be 4 characters long beginning with 'D'.");
+            throw new InvalidDataException("Invalid ID format: Must be 4 characters long beginning with 'D'.");
         }
-        if (!checkDigits(value, 1)){
-            throw new InvalidDataException("Invalid format. Last 3 characters must be digits");
-        }
-    }
-    private void validateSpecialty(String value) throws InvalidDataException{
-        if (value == null || value.isBlank()){
-            throw new InvalidDataException("Specialty is required.");
-        }
-        if (value.length() > NAME_LIMIT){
-            throw new InvalidDataException("Specialty cannot exceed " + NAME_LIMIT + " characters");
-        }
-    }
-    private void validateLicenseNumber(String value) throws InvalidDataException{
-        if (value == null || value.isBlank()){
-            throw new InvalidDataException("License number is required.");
-        }
-        if (value.length() > NAME_LIMIT){
-            throw new InvalidDataException("License number cannot exceed " + NAME_LIMIT + " characters");
+        if (!isAllDigitsFrom(value, 1)){
+            throw new InvalidDataException("Invalid ID format: Last 3 characters must be digits.");
         }
     }
 
@@ -79,6 +63,6 @@ public class Doctor extends Person{
                 "Name: " + getFullName() + "\n" +
                 "DOB: " + getDateOfBirth() + "\n" +
                 "Specialty: " + this.specialty + "\n" +
-                "License Number: " + this.licenseNumber + "\n";
+                "License Number: " + this.licenseNumber;
     }
 }
