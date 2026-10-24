@@ -89,6 +89,14 @@ public abstract class Person {
             throw new InvalidDataException("Date of birth must be strictly before today.");
         }
     }
+    protected static boolean checkDigits(String value, int index){
+        for (int i = index; i < value.length(); i++){
+            if (!Character.isDigit(value.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public abstract String displayDetails();
 }
