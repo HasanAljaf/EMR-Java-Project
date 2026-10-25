@@ -6,7 +6,7 @@ A console-based Electronic Medical Record (EMR) application written in plain Jav
 
 ## Project Status
 
-🚧 Chunk 1 complete. Chunk 2 in progress: exception classes written (checked); Person validation rules next.
+🚧 Chunk 2 complete; Chunk 3 next.
 
 (see [Development Plan](#development-plan)).
 
@@ -72,7 +72,7 @@ _To be documented once file persistence is implemented._
 Steps below are completed in the listed order.
 
 1. Project and package setup ✅
-2. `Person`, `Patient`, and `Doctor`
+2. `Person`, `Patient`, and `Doctor` ✅
 3. `AppointmentStatus` and `Appointment`
 4. `MedicalRecord`
 5. Patient and doctor management in `EMRSystem`
