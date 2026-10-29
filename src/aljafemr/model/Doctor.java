@@ -11,6 +11,7 @@ public class Doctor extends Person{
     private String specialty;
     private final String licenseNumber;
 
+    // Parameterized constructor
     /**
      * Constructor creates a Doctor and inherits fields and methods from Person.
      * @param id Required, must begin with "D", 4 characters long, last 3 characters must be numbers
@@ -23,13 +24,11 @@ public class Doctor extends Person{
      *
      * @throws InvalidDataException if any fields above fail their rules. No object is created
      */
-
-    // Parameterized constructor
     public Doctor(String id, String firstName, String lastName, LocalDate dateOfBirth, String specialty, String licenseNumber) throws InvalidDataException{
         super(id, firstName, lastName, dateOfBirth);
         validateDoctorId(id);
-        validateStringInput(specialty, "Specialty");
-        validateStringInput(licenseNumber, "License Number");
+        validateStringInput(specialty, "Specialty", NAME_LIMIT);
+        validateStringInput(licenseNumber, "License Number", NAME_LIMIT);
 
         this.specialty = specialty;
         this.licenseNumber = licenseNumber;
@@ -41,7 +40,7 @@ public class Doctor extends Person{
 
     // Setters
     public void setSpecialty(String newSpecialty) throws InvalidDataException{
-        validateStringInput(newSpecialty, "Specialty");
+        validateStringInput(newSpecialty, "Specialty", NAME_LIMIT);
         this.specialty = newSpecialty;
     }
 

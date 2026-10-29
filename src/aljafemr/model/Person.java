@@ -9,7 +9,7 @@ import java.util.Objects;
  */
 
 public abstract class Person {
-    // Class Fields
+    // Fields
     private final String id;
     private final String firstName;
     private final String lastName;
@@ -18,6 +18,7 @@ public abstract class Person {
     // Variables
     static final int NAME_LIMIT = 50;
 
+    // Parameterized Constructor
     /**
      * Constructor creates a Person after validating each field.
      * @param id Required, also checked by subClasses
@@ -27,8 +28,6 @@ public abstract class Person {
      *
      * @throws InvalidDataException if any fields above fail their rules. No object is created
      */
-
-    // Parameterized Constructor
     public Person(String id, String firstName, String lastName, LocalDate dateOfBirth) throws InvalidDataException {
         validateId(id);
         validateStringInput(firstName, "First name", NAME_LIMIT);
