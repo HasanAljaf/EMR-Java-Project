@@ -29,10 +29,10 @@ public abstract class Person {
      */
 
     // Parameterized Constructor
-    public Person(String id, String firstName, String lastName, LocalDate dateOfBirth) throws InvalidDataException{
+    public Person(String id, String firstName, String lastName, LocalDate dateOfBirth) throws InvalidDataException {
         validateId(id);
-        validateStringInput(firstName, "First name");
-        validateStringInput(lastName, "Last name");
+        validateStringInput(firstName, "First name", NAME_LIMIT);
+        validateStringInput(lastName, "Last name", NAME_LIMIT);
         validateDateOfBirth(dateOfBirth);
 
         this.id = id;
@@ -67,21 +67,21 @@ public abstract class Person {
     public LocalDate getDateOfBirth(){ return this.dateOfBirth; }
 
     // Helper methods (validation, formatting, internal utilities)
-    private void validateId(String value) throws InvalidDataException{
+    private void validateId(String value) throws InvalidDataException {
         if (value == null || value.isBlank()){
             throw new InvalidDataException("ID is required.");
         }
     }
-    protected void validateStringInput(String value, String fieldName) throws InvalidDataException{
+    protected static void validateStringInput(String value, String fieldName, int limit) throws InvalidDataException {
         if (value == null || value.isBlank()){
             throw new InvalidDataException(fieldName + " is required.");
         }
-        if (value.length() > NAME_LIMIT){
-            throw new InvalidDataException(fieldName + " cannot exceed " + NAME_LIMIT + " characters.");
+        if (value.length() > limit){
+            throw new InvalidDataException(fieldName + " cannot exceed " + limit + " characters.");
         }
     }
     private void validateDateOfBirth(LocalDate value) throws InvalidDataException{
-        if (value == null){
+        if (value == null) {
             throw new InvalidDataException("Date of birth is required.");
         }
         final LocalDate today = LocalDate.now();
@@ -90,7 +90,7 @@ public abstract class Person {
         }
     }
     protected static boolean isAllDigitsFrom(String value, int index){
-        for (int i = index; i < value.length(); i++){
+        for (int i = index; i < value.length(); i++) {
             if (!Character.isDigit(value.charAt(i))) {
                 return false;
             }
