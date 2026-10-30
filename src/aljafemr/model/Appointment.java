@@ -5,14 +5,12 @@ import aljafemr.exception.InvalidDataException;
 
 // Util imports
 import java.time.LocalDateTime;
-import java.lang.Object;
 import java.time.temporal.ChronoUnit;
-
 import static aljafemr.model.Person.isAllDigitsFrom;
 import static aljafemr.model.Person.validateStringInput;
 
 /**
- * Appointment contains appointment details.
+ * Appointment is a booking that connects one patient and one doctor at a date/time, with a controlled status.
  */
 
 public class Appointment {
@@ -99,8 +97,8 @@ public class Appointment {
      * Reschedules a SCHEDULED appointment.
      * Success: the appointment's date/time changes.
      * If an exception is thrown, the date/time is unchanged.
-     * @param value is required.
-     * @throws InvalidDataException when value fails its rule, or if appointment status is not SCHEDULED.
+     * @param value is required, truncated to minutes (seconds & nanoseconds set to zero), past date/time is rejected.
+     * @throws InvalidDataException when value is null or in the past, or status is not SCHEDULED.
      */
     public void reschedule(LocalDateTime value) throws InvalidDataException {
         LocalDateTime truncatedDateTime = validateThenTruncate(value);
@@ -122,7 +120,7 @@ public class Appointment {
      * Completes a SCHEDULED appointment.
      * Success: the appointment's status becomes COMPLETED.
      * If an exception is thrown, the status is unchanged.
-     * @throws InvalidDataException when appointment status is not SCHEDULED.
+     * @throws InvalidDataException when appointment status is not SCHEDULED, or when date/time is in the future.
      */
     public void complete() throws InvalidDataException {
         scheduledStatusCheck("complete");
@@ -132,7 +130,7 @@ public class Appointment {
         this.status = AppointmentStatus.COMPLETED;
     }
     /**
-     * Returns true only when status is SCHEDULED.
+     * @return true only when status is SCHEDULED.
      * COMPLETED and CANCELLED do not block the doctor's time.
      */
     public boolean isOccupyingSlot(){
